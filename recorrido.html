@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recorrido Virtual | ET 35 - Eduardo Latzina</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-area">
+            <img src="Assets/images.png" alt="Escuela Técnica 35 - Eduardo Latzina" class="logo">
+            <div class="title-container">
+                <h1>Escuela Técnica 35 - Eduardo Latzina</h1>
+                <p class="slogan">Automotores | Computación</p>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+            <ul class="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="escuela.html">Escuela</a></li>
+                <li><a href="campamento.html">Campamento Suyai</a></li>
+                <li><a href="comunidad.html">Comunidad Educativa</a></li>
+                <li><a href="recorrido.html" class="active">Recorrido Virtual</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <section class="page-hero small-hero">
+            <h2>🎥 Recorrida por nuestra escuela</h2>
+        </section>
+
+        <section class="virtual-tour-content container section-padding">
+            
+            <div class="info-card">
+                <p>Conocé nuestras instalaciones, talleres, laboratorios y espacios educativos a través de este recorrido virtual por nuestra escuela.</p>
+                <p class="instruction-text"><i class="fa-solid fa-hand-point-right"></i> ¡Hacé click en el video para comenzar el tour!</p>
+            </div>
+
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/S4B7r3kew-4" 
+                    title="Presentación ET 35 - Recorrido Virtual" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="additional-info">
+                <h3>Lo que podrás ver en el recorrido:</h3>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-check"></i> Talleres de Automotores con maquinaria actualizada.</li>
+                    <li><i class="fa-solid fa-check"></i> Laboratorios de Computación y electrónica.</li>
+                    <li><i class="fa-solid fa-check"></i> Aulas interactivas y salón de usos múltiples (SUM).</li>
+                    <li><i class="fa-solid fa-check"></i> Instalaciones deportivas y espacios comunes.</li>
+                </ul>
+            </div>
+        </section>
+        
+    </main>
+    
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h3>Escuela Técnica 35</h3>
+                <p>Formando técnicos con excelencia y tradición.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <p>📞 Teléfono: 4567-5838</p>
+                <p>📍 Lope de Vega 2150</p>
+            </div>
+            <div class="footer-specialties">
+                <h3>Especialidades</h3>
+                <ul>
+                    <li>Automotores</li>
+                    <li>Computación</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 Escuela Técnica 35 - Eduardo Latzina. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
