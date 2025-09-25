@@ -2,6 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.querySelector('.nav-toggle');
     const navList = document.querySelector('.nav-list');
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
 
     // Escucha el click en el botón de hamburguesa
     navToggle.addEventListener('click', () => {
@@ -9,7 +11,31 @@ document.addEventListener('DOMContentLoaded', () => {
         navList.classList.toggle('open');
     });
 
-    // 2. Ejemplo de contenido dinámico (Opcional: para la sección 'highlights')
+    // 2. Funcionalidad del Modo Claro/Oscuro
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+        body.classList.add(currentTheme);
+        if (currentTheme === 'dark-mode') {
+            themeToggle.querySelector('i').classList.remove('fa-moon');
+            themeToggle.querySelector('i').classList.add('fa-sun');
+        }
+    }
+
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        let theme = 'light-mode';
+        if (body.classList.contains('dark-mode')) {
+            theme = 'dark-mode';
+            themeToggle.querySelector('i').classList.remove('fa-moon');
+            themeToggle.querySelector('i').classList.add('fa-sun');
+        } else {
+            themeToggle.querySelector('i').classList.remove('fa-sun');
+            themeToggle.querySelector('i').classList.add('fa-moon');
+        }
+        localStorage.setItem('theme', theme);
+    });
+
+    // 3. Ejemplo de contenido dinámico (Opcional: para la sección 'highlights')
     const highlightsSection = document.querySelector('.highlights');
     
     const noticias = [
@@ -31,6 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Si la sección existe, inyecta el contenido
     if (highlightsSection) {
-         highlightsSection.innerHTML = htmlContent;
+        highlightsSection.innerHTML = htmlContent;
     }
 });
