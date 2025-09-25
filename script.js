@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.querySelector('.nav-toggle');
     const navList = document.querySelector('.nav-list');
     const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
+    const body = document.getElementById('body');
 
     // Escucha el click en el botón de hamburguesa
     navToggle.addEventListener('click', () => {
@@ -11,35 +11,28 @@ document.addEventListener('DOMContentLoaded', () => {
         navList.classList.toggle('open');
     });
 
-    // 2. Funcionalidad del Modo Claro/Oscuro
-    // Comprueba si el usuario ya tiene un tema guardado en localStorage
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-        body.classList.add(currentTheme);
-        if (currentTheme === 'dark-mode') {
-            themeToggle.querySelector('i').classList.remove('fa-moon');
-            themeToggle.querySelector('i').classList.add('fa-sun');
-        }
+    // 2. Funcionalidad para el Modo Oscuro/Claro
+    // Carga la preferencia del usuario desde localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    } else {
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
     }
 
-    // Escucha el clic en el botón de cambio de tema
+    // Escucha el click en el botón de cambio de tema
     themeToggle.addEventListener('click', () => {
-        // Alterna la clase 'dark-mode' en el body
         body.classList.toggle('dark-mode');
         
-        let theme = 'light-mode';
+        // Guarda la preferencia en localStorage
         if (body.classList.contains('dark-mode')) {
-            theme = 'dark-mode';
-            // Cambia el ícono a sol
-            themeToggle.querySelector('i').classList.remove('fa-moon');
-            themeToggle.querySelector('i').classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         } else {
-            // Cambia el ícono a luna
-            themeToggle.querySelector('i').classList.remove('fa-sun');
-            themeToggle.querySelector('i').classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
         }
-        // Guarda la preferencia del usuario en el almacenamiento local
-        localStorage.setItem('theme', theme);
     });
 
     // 3. Ejemplo de contenido dinámico (Opcional: para la sección 'highlights')
