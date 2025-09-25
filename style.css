@@ -6,62 +6,7 @@
     --color-light: #f4f6f9; /* Fondo claro para secciones */
     --font-heading: 'Roboto', sans-serif;
     --font-body: 'Roboto', sans-serif;
-    --bg-color-main: #fff;
-    --bg-color-footer: var(--color-primary);
-    --border-color-card: #e0e0e0;
 }
-
-/* --- ESTILOS PARA EL MODO OSCURO --- */
-.dark-mode {
-    --color-primary: #f4f6f9; /* Blanco/Gris claro */
-    --color-secondary: #ff8c42; /* Naranja más vivo para el acento */
-    --color-text: #e0e0e0; /* Gris claro para el texto */
-    --color-light: #2c3e50; /* Azul oscuro para el fondo */
-    --bg-color-main: #1c2b3a; /* Azul muy oscuro para el fondo principal */
-    --bg-color-footer: #1a2a47; /* Mantiene un tono oscuro para el pie de página */
-    --border-color-card: #444;
-}
-
-.dark-mode .main-header {
-    background-color: #1a2a47;
-    color: var(--color-primary);
-}
-
-.dark-mode .logo-area h1 {
-    color: var(--color-primary);
-}
-
-.dark-mode .main-nav a {
-    color: var(--color-primary);
-}
-
-.dark-mode .main-nav a:hover, .dark-mode .main-nav a.active {
-    background-color: var(--color-secondary);
-}
-
-.dark-mode body {
-    background-color: var(--bg-color-main);
-    color: var(--color-text);
-}
-
-.dark-mode .bg-light {
-    background-color: #2c3e50;
-}
-
-.dark-mode .card,
-.dark-mode .history-card,
-.dark-mode .stat-card,
-.dark-mode .info-card {
-    background-color: #2c3e50;
-    border: 1px solid var(--border-color-card);
-    box-shadow: none;
-}
-
-.dark-mode .history-icon {
-    color: var(--color-secondary);
-    background-color: #3e506a;
-}
-/* --- FIN ESTILOS MODO OSCURO --- */
 
 * {
     box-sizing: border-box;
@@ -73,58 +18,51 @@ body {
     font-family: var(--font-body);
     color: var(--color-text);
     line-height: 1.6;
-    background-color: var(--bg-color-main);
-    transition: background-color 0.5s, color 0.5s;
+    background-color: #fff;
 }
 
-/* ENCABEZADO */
+/* ENCABEZADO MEJORADO */
 .main-header {
     background-color: var(--color-primary);
     color: white;
     padding: 15px 5%;
-    display: flex;
+    display: flex; /* Usamos Flexbox para organizar el logo y el menú */
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    flex-wrap: wrap; /* Permite que los elementos se apilen en móvil */
 }
 
+/* --- CAMBIOS AQUÍ --- */
 .logo-area {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    display: flex; /* Hacemos que el logo y el texto estén en línea */
+    align-items: center; /* Centramos verticalmente */
+    gap: 15px; /* Espacio entre el logo y el texto */
 }
 
 .logo-area .logo {
-    width: 70px;
+    width: 70px; /* Tamaño del logo: Más pequeño */
     height: auto;
-    max-height: 70px;
+    max-height: 70px; /* Asegura que no se estire demasiado si la imagen es alta */
 }
 
 .logo-area h1 {
-    font-size: 1.8rem;
-    margin-bottom: 0;
-    line-height: 1.2;
+    font-size: 1.8rem; /* Puedes ajustar este tamaño */
+    margin-bottom: 0; /* Elimina el margen inferior por defecto de h1 */
+    line-height: 1.2; /* Ajusta la altura de línea para el título */
 }
 
 .slogan {
     color: var(--color-secondary);
     font-weight: 700;
-    font-size: 0.9rem;
-    margin-top: 5px;
+    font-size: 0.9rem; /* Puedes ajustar este tamaño */
+    margin-top: 5px; /* Pequeño espacio entre el título y el slogan */
 }
+/* --- FIN DE CAMBIOS --- */
 
-.title-container h1,
-.title-container .slogan {
-    color: white;
-}
 
+/* NAVEGACIÓN */
 .main-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* En escritorio */
 }
 
 .nav-list {
@@ -141,157 +79,79 @@ body {
     transition: background-color 0.3s;
 }
 
-.nav-list a:hover,
-.nav-list a.active {
+.nav-list a:hover, .nav-list a.active {
     background-color: var(--color-secondary);
 }
 
 .nav-toggle {
-    display: none; /* Oculto por defecto en escritorio */
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
+    /* Solo visible en móvil */
+    display: none;
 }
 
-/* BOTÓN DE MODO OSCURO/CLARO */
-.theme-toggle {
-    background: none;
-    border: 2px solid white;
-    color: white;
-    cursor: pointer;
-    font-size: 1.2rem;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    transition: background-color 0.3s, color 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 20px;
-}
+/* ... código CSS anterior ... */
 
-.theme-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.dark-mode .theme-toggle {
-    border-color: var(--color-text);
-    color: var(--color-text);
-}
-
-/* SECCIONES Y CONTENEDORES GENERALES */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-padding {
-    padding: 60px 0;
-}
-
-.bg-light {
-    background-color: var(--color-light);
-}
-
-/* HERO BANNER */
+/* SECCIÓN HERO (Banner principal) */
 .hero-banner {
-    background: url('https://placehold.co/1920x600/1a2a47/e63946?text=ET+35') no-repeat center center/cover;
-    height: 60vh;
+    /* --- AQUÍ ES DONDE INSERTAS TU IMAGEN DE FONDO --- */
+    background: url('Assets/images.jpg') center/cover no-repeat; /* <--- CAMBIA 'imagen-taller.jpg' por el nombre de tu archivo de imagen */
+    /* ------------------------------------------------ */
+
+    min-height: 400px; /* Puedes ajustar la altura mínima si lo necesitas */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
-    position: relative;
-}
-
-.hero-banner::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.hero-banner h2, .hero-banner .cta-button {
+    color: white; /* Asegúrate de que el texto sea blanco para que contraste con la imagen */
+    padding: 20px;
     position: relative;
     z-index: 1;
 }
 
-.hero-banner h2 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+/* Este pseudo-elemento `::after` crea un overlay oscuro para que el texto sea legible */
+.hero-banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Overlay oscuro (50% de opacidad) */
+    z-index: -1; /* Asegura que esté detrás del contenido (texto y botón) */
 }
 
+/* ... resto del código CSS ... */
+
 .cta-button {
+    display: inline-block;
     background-color: var(--color-secondary);
     color: white;
-    padding: 12px 25px;
-    border-radius: 5px;
+    padding: 12px 30px;
     text-decoration: none;
     font-weight: 700;
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #c72c38; /* Rojo más oscuro */
 }
 
-/* HIGHLIGHTS / NEWS */
-.highlights {
-    padding: 60px 5%;
-}
-
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.news-card {
-    background-color: var(--color-light);
-    border-left: 5px solid var(--color-secondary);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.news-card:hover {
-    transform: translateY(-5px);
-}
-
-.news-card h3 {
-    margin-bottom: 10px;
-    color: var(--color-primary);
-}
-
-.news-date {
-    display: block;
-    font-size: 0.9em;
-    color: #888;
-    margin-bottom: 5px;
-}
-
-/* FOOTER */
+/* PIE DE PÁGINA (Footer con Grid) */
 .main-footer {
-    background-color: var(--bg-color-footer);
+    background-color: var(--color-primary);
     color: white;
     padding: 40px 5%;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    margin-bottom: 30px;
+    /* 3 columnas en escritorio, adaptándose a 1 columna en móvil */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .footer-grid h3 {
@@ -299,160 +159,532 @@ body {
     margin-bottom: 15px;
 }
 
-.footer-grid p, .footer-grid ul {
-    font-size: 0.9rem;
-    color: #ccc;
-}
-
-.footer-grid ul {
+.footer-specialties ul {
     list-style: none;
 }
 
-.footer-grid ul li {
-    margin-bottom: 5px;
+.footer-contact p {
+    margin: 5px 0;
 }
 
 .copyright {
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 20px;
     font-size: 0.8rem;
-    color: #aaa;
+    color: rgba(255, 255, 255, 0.7);
 }
 
-/* PÁGINAS INDIVIDUALES */
-.page-hero {
-    background: var(--color-primary);
+/* CONSULTAS DE MEDIOS (Haciendo el diseño responsivo) */
+@media (max-width: 768px) {
+   /* ... código CSS anterior ... */
+
+/* ENCABEZADO MEJORADO */
+.main-header {
+    background-color: var(--color-primary);
     color: white;
-    text-align: center;
-    padding: 60px 20px;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
 }
 
-.page-hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+/* --- CAMBIOS PRINCIPALES EN .logo-area --- */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    
+    /* AÑADIMOS MARGEN INFERIOR SOLO EN MÓVIL (para que se separe de la nav) */
+    /* En escritorio no se necesita porque la nav está al lado */
+    margin-bottom: 0; 
 }
 
-.page-hero .subtitle {
-    font-size: 1.2rem;
-    font-style: italic;
+.logo-area .logo {
+    width: 70px;
+    height: auto;
+    max-height: 70px;
+}
+
+/* ... código CSS de h1, slogan, etc. ... */
+
+/* CONSULTAS DE MEDIOS (Haciendo el diseño responsivo) */
+@media (max-width: 768px) {
+  /* ... código CSS anterior ... */
+
+/* ENCABEZADO MEJORADO */
+.main-header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 15px 5%;
+    display: flex;
+    /* Cambiamos a 'flex-start' para tener control del espaciado interno */
+    justify-content: flex-start; 
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+/* --- SECCIÓN DE LOGO Y TÍTULOS --- */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Aumentamos el espacio entre el logo y el texto */
+    /* Quitamos el margin-bottom de aquí ya que lo manejaremos con media-query */
+}
+
+.logo-area .logo {
+    width: 90px; /* Aumentamos el tamaño del logo para que se vea mejor */
+    height: auto;
+    max-height: 90px;
+}
+
+.title-container {
+    /* Nuevo contenedor para agrupar h1 y p */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Agregamos el margen a la derecha para separarlo del menú en escritorio */
+    margin-right: 40px; 
+}
+
+.logo-area h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+.slogan {
     color: var(--color-secondary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-top: 5px;
 }
 
+/* --- NAVEGACIÓN --- */
+.main-nav {
+    /* Aseguramos que la navegación no se estire y se alinee */
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0; /* Aseguramos que no haya margen extra */
+}
+
+/* ... código CSS de a:hover, nav-toggle, etc. ... */
+
+
+/* CONSULTAS DE MEDIOS (Haciendo el diseño responsivo) */
+@media (max-width: 992px) {
+    /* En pantallas medianas, apilamos el logo y el menú */
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .title-container {
+        /* Eliminamos el margen derecho que separa del menú */
+        margin-right: 0; 
+    }
+    
+    .logo-area {
+        /* Hacemos que la logo-area se apile con el menú en móvil */
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 5px; 
+        /* APLICAMOS EL ESPACIO INFERIOR PARA SEPARARLO DEL MENÚ */
+        margin-bottom: 20px; 
+    }
+    
+    .main-nav {
+        width: 100%;
+    }
+    
+    /* ... resto de media query para móvil ... */
+}   
+
+    /* ... código CSS de nav-list, nav-toggle, footer, etc. ... */
+}
+    /* Ocultar el menú de navegación por defecto en móvil */
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* Mostrar el botón del menú en móvil */
+    .nav-toggle {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    /* Estilos para cuando el menú esté abierto (se maneja con JS) */
+    .nav-list.open {
+        display: flex;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+    }
+}
+/* --- ESTILOS PARA PÁGINAS INTERNAS --- */
+
+.page-content {
+    padding: 40px 5%;
+}
+
+.page-hero {
+    text-align: center;
+    padding: 40px 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--color-secondary);
+}
+
+.page-hero {
+    text-align: center;
+    padding: 40px 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--color-secondary);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA LA HISTORIA --- */
 .history-timeline {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
+    /* Grid de columnas automáticas con un mínimo de 300px, usando Flexbox en el grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .history-card {
-    background: #fff;
+    background-color: var(--color-light); 
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid var(--color-secondary); /* Línea de acento */
     position: relative;
-    border-left: 5px solid var(--color-secondary);
+    /* Espacio para el icono flotante */
+    padding-top: 60px; 
+}
+
+.history-card h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: 15px;
 }
 
 .history-icon {
     position: absolute;
-    left: -25px;
-    top: 20px;
+    top: -20px; /* Saca el icono un poco por encima del borde */
+    left: 20px;
     font-size: 2rem;
     color: white;
     background-color: var(--color-secondary);
     padding: 10px;
     border-radius: 50%;
-    transform: rotate(-10deg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .timeline-detail {
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 15px;
+    margin-top: 20px;
     padding-top: 10px;
     border-top: 1px dashed #ccc;
+    font-size: 0.9rem;
 }
 
 .timeline-detail .date {
-    font-weight: bold;
-    color: var(--color-secondary);
-}
-
-/* Página de Comunidad */
-.alumni-section, .retired-section {
-    text-align: center;
-}
-
-.header-with-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-    text-align: left;
-}
-
-.header-with-link h3 {
-    margin-bottom: 0;
-}
-
-.external-link {
+    font-weight: 700;
     color: var(--color-primary);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+    display: block; /* Cada fecha en una línea */
+    margin-bottom: 5px;
 }
 
-.external-link:hover {
+/* Ajuste responsivo */
+@media (max-width: 768px) {
+    .history-timeline {
+        /* Una sola columna en móvil */
+        grid-template-columns: 1fr; 
+    }
+}
+/* --- ESTILOS ESPECÍFICOS PARA CAMPAMENTO SUYAI --- */
+
+/* Estilos comunes para espaciado interno */
+.section-padding {
+    padding: 40px 0;
+}
+
+.bg-light {
+    background-color: var(--color-light); /* Fondo suave para alternar secciones */
+}
+
+/* Filosofía */
+.campamento-philosophy h3 {
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.campamento-philosophy p {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    text-align: justify;
+}
+
+.highlight-quote {
+    font-style: italic;
+    font-weight: 500;
     color: var(--color-secondary);
+    text-align: center !important;
+    padding: 10px;
+    border: 2px solid var(--color-secondary);
+    border-radius: 5px;
+    display: block;
+    max-width: 600px;
+    margin: 20px auto;
 }
 
-.stats-grid {
+/* Reseña Histórica (Grid de 3 columnas) */
+.timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.timeline-item {
+    background-color: white;
+    padding: 20px;
+    border-left: 4px solid var(--color-primary);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item h4 {
+    color: var(--color-secondary);
+    margin-bottom: 5px;
+}
+
+/* Transporte e Infraestructura (Details Grid) */
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.details-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.details-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.details-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.details-card li {
+    margin-bottom: 8px;
+}
+
+/* Actividades */
+.activities-section h3, .activities-section h4 {
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.group-types ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.category-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     margin-bottom: 40px;
 }
 
+.category-item h5 {
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+}
+
+.itinerant-camp {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.routes-info p {
+    background-color: var(--color-light);
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    border-left: 5px solid var(--color-secondary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .details-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+}
+/* ... (código CSS anterior para .page-hero) ... */
+
+/* ESTILOS ESPECÍFICOS PARA EL HERO DEL CAMPAMENTO */
+.campamento-hero {
+    /* --- AQUÍ ES DONDE INSERTAS TU IMAGEN DE FONDO --- */
+    background: url('Assets/campamento-frente.jpg') center/cover no-repeat; /* <--- CAMBIA LA RUTA SI ES NECESARIO */
+    /* ------------------------------------------------ */
+    color: white; /* Asegúrate de que el texto sea blanco para contrastar */
+    min-height: 450px; /* Dale una altura considerable para que la imagen se vea bien */
+    position: relative;
+    display: flex; /* Para centrar el contenido */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra al texto para mayor legibilidad */
+    z-index: 1; /* Para que el overlay esté detrás */
+}
+
+/* Agregamos un overlay oscuro para mejorar la legibilidad del texto */
+.campamento-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Overlay oscuro (40% de opacidad) */
+    z-index: -1;
+}
+
+.campamento-hero h2 {
+    color: white; /* Aseguramos que el título principal sea blanco */
+    font-size: 3rem; /* Lo hacemos más grande para el impacto */
+    margin-bottom: 15px;
+}
+
+.campamento-hero .subtitle {
+    color: white; /* Aseguramos que el subtítulo sea blanco */
+    font-size: 1.3rem;
+    max-width: 800px;
+}
+
+/* ... (resto del código CSS) ... */
+/* --- ESTILOS ESPECÍFICOS PARA LA COMUNIDAD EDUCATIVA --- */
+
+/* Estilo para el enlace externo */
+.header-with-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.header-with-link h3 {
+    margin-bottom: 0;
+    color: var(--color-primary);
+}
+
+.external-link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 700;
+    transition: opacity 0.3s;
+}
+
+.external-link:hover {
+    opacity: 0.8;
+}
+
+/* Grilla de Estadísticas */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
 .stat-card {
     background-color: var(--color-light);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    padding: 25px;
+    border-radius: 8px;
+    border-bottom: 4px solid var(--color-secondary);
 }
 
 .stat-card.large-card {
-    grid-column: span 2;
-    padding: 30px;
+    grid-column: span 2; /* Ocupa dos columnas en escritorio */
+    border-bottom: 4px solid var(--color-primary);
+}
+
+.stat-card h4 {
+    color: var(--color-primary);
+    margin-bottom: 10px;
 }
 
 .stat-number {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--color-secondary);
     line-height: 1;
+    margin-bottom: 10px;
 }
 
 .stat-detail {
     font-size: 0.9rem;
-    color: #888;
-    margin-top: 5px;
+    color: #666;
 }
 
+/* Subsecciones de Egresados (Distribución y Hitos) */
 .alumni-sub-sections {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr; /* Una sección más ancha que la otra */
     gap: 40px;
-    text-align: left;
+    margin-bottom: 50px;
 }
 
 .labor-distribution h4, .important-milestones h4 {
     color: var(--color-primary);
     margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--color-secondary);
 }
 
+/* Gráfico de Barras Simple (usando CSS variables) */
 .bar-chart {
     display: flex;
     flex-direction: column;
@@ -460,52 +692,54 @@ body {
 }
 
 .bar-item {
-    background-color: #ddd;
-    height: 30px;
+    background-color: var(--color-light);
+    height: 40px;
     border-radius: 5px;
     position: relative;
-    width: var(--percent, 0%);
-    transition: width 1s ease-out;
+    overflow: hidden;
 }
 
 .bar-item::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    width: 100%;
+    width: var(--percent); /* Toma el valor de la variable en HTML */
     background-color: var(--color-secondary);
-    border-radius: 5px;
+    transition: width 1s ease-out;
 }
 
 .bar-item .label {
     position: absolute;
-    left: 10px;
     top: 50%;
+    left: 10px;
     transform: translateY(-50%);
-    font-weight: bold;
-    color: var(--color-primary);
-    z-index: 1;
-    white-space: nowrap;
+    color: white;
+    font-weight: 700;
+    z-index: 2; /* Asegura que el texto esté sobre la barra */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .milestone-list {
     list-style: none;
-    padding-left: 20px;
+    padding: 0;
 }
 
 .milestone-list li {
-    position: relative;
-    padding-left: 20px;
+    background-color: white;
+    padding: 10px 15px;
+    border-left: 5px solid var(--color-secondary);
     margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
-.milestone-list li::before {
-    content: '★';
-    position: absolute;
-    left: 0;
-    color: var(--color-secondary);
+/* Centro de Jubilados */
+.retired-section h3 {
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .retired-content-grid {
@@ -514,142 +748,85 @@ body {
     gap: 30px;
 }
 
-.card {
+.retired-content-grid .card {
     background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
-/* Página de Campamento */
-.campamento-hero {
-    background-image: url('https://placehold.co/1920x600/1a2a47/e63946?text=Campamento+Suyai');
-    background-position: center;
-    background-size: cover;
-}
-
-.campamento-philosophy {
-    text-align: center;
-}
-
-.campamento-philosophy h3 {
-    margin-bottom: 20px;
-    color: var(--color-primary);
-}
-
-.highlight-quote {
-    font-style: italic;
-    font-weight: bold;
-    color: var(--color-secondary);
-    margin-top: 20px;
-}
-
-.timeline-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-}
-
-.timeline-item {
-    background-color: #fff;
-    padding: 20px;
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid var(--color-secondary);
-    position: relative;
-    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.timeline-item h4 {
-    color: var(--color-primary);
-    margin-bottom: 5px;
-}
-
-.details-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-
-.details-card {
-    background-color: var(--color-light);
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.details-card h3 {
-    color: var(--color-primary);
+.retired-content-grid h4 {
+    color: var(--color-secondary);
     margin-bottom: 15px;
 }
 
-.details-card ul {
-    list-style: none;
-    padding-left: 0;
+.highlight-info {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #444;
+    border-left: 3px solid var(--color-primary);
+    padding-left: 10px;
+    margin-top: 15px;
 }
 
-.details-card li {
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 25px;
+/* Ajustes Responsivos para la Comunidad */
+@media (max-width: 900px) {
+    .alumni-sub-sections, .retired-content-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+        gap: 20px;
+    }
+    
+    .stat-card.large-card {
+        grid-column: span 1; /* Ocupa una columna en móvil */
+    }
+}
+/* --- ESTILOS ESPECÍFICOS PARA RECORRIDO VIRTUAL --- */
+
+.small-hero {
+    /* Si quieres un encabezado más pequeño para esta página interna */
+    padding: 20px 0; 
 }
 
-.details-card li i {
-    position: absolute;
-    left: 0;
-    color: var(--color-secondary);
-}
-
-.activity-categories {
-    margin-top: 40px;
-}
-
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    text-align: left;
-}
-
-.category-item {
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-.category-item h5 {
-    color: var(--color-secondary);
-    margin-bottom: 10px;
-}
-
-/* Página de Recorrido Virtual */
 .virtual-tour-content {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Tarjeta de información (similar a la de la imagen) */
 .info-card {
-    background-color: var(--color-light);
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, var(--color-primary), #4a6fa5); /* Degradado azul/púrpura */
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .instruction-text {
-    font-weight: bold;
-    color: var(--color-secondary);
     margin-top: 10px;
+    font-weight: 700;
 }
 
+.info-card p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* Contenedor Responsivo para Videos (MUY IMPORTANTE) */
 .video-container {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* Ratio 16:9 */
+    /* Truco para mantener la proporción 16:9 (altura = 56.25% del ancho) */
+    padding-bottom: 56.25%; 
     height: 0;
     overflow: hidden;
-    background: #000;
-    border-radius: 10px;
+    max-width: 900px; /* Limita el ancho máximo del video */
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .video-container iframe {
@@ -658,100 +835,59 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    border: none;
 }
 
+/* Información Adicional */
 .additional-info {
-    margin-top: 40px;
-    text-align: left;
+    max-width: 900px;
+    width: 100%;
+    padding: 20px;
+}
+
+.additional-info h3 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 5px;
 }
 
 .check-list {
     list-style: none;
-    padding-left: 0;
+    padding: 0;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr 1fr; /* 2 columnas en escritorio */
+    gap: 15px;
 }
 
 .check-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-size: 1rem;
+    color: var(--color-text);
 }
 
 .check-list i {
-    color: green;
+    color: var(--color-secondary);
+    margin-right: 8px;
 }
 
+/* Ajuste Responsivo */
+@media (max-width: 600px) {
+    .check-list {
+        grid-template-columns: 1fr; /* 1 columna en móvil */
+    }
+}
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 768px) {
-    .main-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+/* CLASE PARA CENTRAR IMAGENES EN COLUMNAS */
+.centered-image {
+    display: block; /* La imagen se comporta como un bloque */
+    max-width: 80%; /* Ocupa un máximo del 80% del contenedor */
+    margin: 20px auto 0 auto; /* Márgenes horizontales automáticos para centrar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-    .main-nav {
-        order: 3; /* Asegura que el menú esté debajo del logo y el botón */
-        width: 100%;
-        margin-top: 15px;
-    }
-
-    .nav-toggle {
-        display: block;
-        position: absolute;
-        right: 20px;
-        top: 20px;
-    }
-
-    .nav-list {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        background-color: rgba(26, 42, 71, 0.95);
-        border-radius: 5px;
-    }
-
-    .nav-list.open {
-        display: flex;
-    }
-
-    .nav-list li {
-        margin: 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .nav-list a {
-        padding: 15px;
-        display: block;
-    }
-
-    .theme-toggle {
-        position: absolute;
-        right: 80px;
-        top: 20px;
-    }
-
-    .hero-banner h2 {
-        font-size: 2rem;
-    }
-
-    .alumni-sub-sections {
-        grid-template-columns: 1fr;
-    }
-    
-    .retired-content-grid, .details-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .header-with-link {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-
-    .stat-card.large-card {
-        grid-column: span 1;
-    }
+/* Redefine el estilo de la imagen para que sea responsiva y mantenga la estética */
+.centered-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
