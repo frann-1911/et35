@@ -32,6 +32,15 @@ body.dark-mode {
     color: var(--color-text);
 }
 
+.dark-mode .nav-list a {
+    color: var(--color-text);
+}
+
+.dark-mode .nav-list a:hover, .dark-mode .nav-list a.active {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+}
+
 /* Estilo para el botón de cambio de tema */
 .theme-toggle {
     background: transparent;
