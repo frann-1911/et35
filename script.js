@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 2. Funcionalidad del Modo Claro/Oscuro
+    // Comprueba si el usuario ya tiene un tema guardado en localStorage
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
         body.classList.add(currentTheme);
@@ -21,17 +22,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Escucha el clic en el botón de cambio de tema
     themeToggle.addEventListener('click', () => {
+        // Alterna la clase 'dark-mode' en el body
         body.classList.toggle('dark-mode');
+        
         let theme = 'light-mode';
         if (body.classList.contains('dark-mode')) {
             theme = 'dark-mode';
+            // Cambia el ícono a sol
             themeToggle.querySelector('i').classList.remove('fa-moon');
             themeToggle.querySelector('i').classList.add('fa-sun');
         } else {
+            // Cambia el ícono a luna
             themeToggle.querySelector('i').classList.remove('fa-sun');
             themeToggle.querySelector('i').classList.add('fa-moon');
         }
+        // Guarda la preferencia del usuario en el almacenamiento local
         localStorage.setItem('theme', theme);
     });
 
